@@ -3,8 +3,6 @@
     <v-main>
       <v-container>
         <h1 class="mb-6 text-center">Unsplash Search Gallery</h1>
-
-        <!-- Search Bar -->
         <v-text-field
           v-model="query"
           label="Search for photos..."
@@ -22,8 +20,6 @@
         >
           Search
         </v-btn>
-
-        <!-- Masonry Grid -->
         <div class="masonry-grid" v-if="photos.length && !loading">
           <div v-for="photo in photos" :key="photo.id" class="masonry-item">
             <v-card class="photo-card">
@@ -51,8 +47,6 @@
             </v-card>
           </div>
         </div>
-
-        <!-- No Results -->
         <v-alert
           v-if="!loading && photos.length === 0 && hasSearched"
           type="warning"
@@ -60,8 +54,6 @@
         >
           No photos found for "{{ query }}"
         </v-alert>
-
-        <!-- Loading Overlay -->
         <v-overlay v-model="loading" class="align-center justify-center" persistent>
           <v-progress-circular
             size="64"
